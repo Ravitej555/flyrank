@@ -3,9 +3,9 @@
 **Student / Candidate:** Ravitej Manu  
 **Track:** FlyRank AI Internship — Frontend AI Engineering (Week 3)  
 **Project:** FlyRank (Intelligent Multi-Criteria Flight Search, Ranking & Utility Platform)  
-**Repository Branch:** [https://github.com/Ravitej555/flyrank/tree/feat/w3-app-router](https://github.com/Ravitej555/flyrank/tree/feat/w3-app-router)  
-**Pull Request:** [https://github.com/Ravitej555/flyrank/pull/new/feat/w3-app-router](https://github.com/Ravitej555/flyrank/pull/new/feat/w3-app-router)  
-**Primary Repository:** [https://github.com/Ravitej555/flyrank](https://github.com/Ravitej555/flyrank)  
+**Repository:** [https://github.com/Ravitej555/flyrankweek3](https://github.com/Ravitej555/flyrankweek3)  
+**Repository Branch:** [https://github.com/Ravitej555/flyrankweek3/tree/feat/w3-app-router](https://github.com/Ravitej555/flyrankweek3/tree/feat/w3-app-router)  
+**Alternative Repository:** [https://github.com/Ravitej555/flyrank](https://github.com/Ravitej555/flyrank)  
 
 ---
 
