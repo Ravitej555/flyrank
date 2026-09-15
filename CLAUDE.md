@@ -115,3 +115,22 @@ All commits in this repository must strictly adhere to the [Conventional Commits
 - `perf`: A code change that improves performance
 - `test`: Adding missing tests or correcting existing tests
 - `chore`: Changes to build process, auxiliary tools, dependencies, or repository config
+
+---
+
+## 6. Learned Project Rules (Workflow Drill Post-Mortem)
+
+These rules are enforced across all features and code reviews:
+
+1. **Form Validation Separation (Zod First)**:
+   All forms and user configuration panels MUST define and validate inputs through a dedicated Zod schema residing under `lib/validations/`. UI components must never perform manual, ad-hoc string parsing (`parseFloat()`, manual `isNaN` checks, or inline alert dialogs) in submit handlers. Validation errors must be mapped from `zod.safeParse()` issues.
+
+2. **Floating-Point Weight Sums with Epsilon Tolerance**:
+   Any multi-attribute weighting algorithm or user-adjustable criteria distribution whose sum must equal 100% (or 1.0) MUST enforce a tolerance epsilon (`Math.abs(sum - 100) <= WEIGHT_TOLERANCE_EPSILON`, where `WEIGHT_TOLERANCE_EPSILON = 0.05`) inside Zod `.refine()`. Strict equality (`sum === 100` or `sum === 1.0`) is prohibited due to IEEE 754 decimal rounding inaccuracies (e.g. `33.3 + 33.3 + 33.4 = 100.00000000000001`).
+
+3. **Accessible Form Controls & Error Linkage (WCAG 2.1 AA)**:
+   - Every input and slider control MUST have an associated `<label htmlFor={uniqueId}>`.
+   - Every validation error element MUST have an `id` linked to its corresponding input via `aria-describedby={errorId}`.
+   - Any input failing validation MUST declare `aria-invalid={true}`.
+   - Sliders and numeric adjusters MUST declare `aria-valuemin`, `aria-valuemax`, and `aria-valuenow`.
+   - Dynamic real-time calculation counters (e.g., total weight sum) MUST declare `role="status"` and `aria-live="polite"`.
